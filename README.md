@@ -1,5 +1,3 @@
-# Crear README simple
-cat > README.md << 'EOF'
 # Jorge Lafarga - Personal Portfolio
 
 Personal website showcasing my work in Data Science and Actuary.
