@@ -246,6 +246,7 @@ body {
     border-radius: 8px;
     box-shadow: var(--shadow);
     border-left: 4px solid var(--secondary-color);
+    position: relative;
 }
 
 .education-card h3 {
@@ -261,6 +262,18 @@ body {
     border-radius: 20px;
     font-size: 0.9rem;
     color: var(--text-light);
+    margin-bottom: 1rem;
+    margin-right: 0.5rem;
+}
+
+.current-badge {
+    display: inline-block;
+    background: #27ae60;
+    color: white;
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
     margin-bottom: 1rem;
 }
 
@@ -302,6 +315,80 @@ body {
     padding: 2rem;
 }
 
+/* Language Filter */
+.language-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.filter-btn {
+    padding: 0.6rem 1.5rem;
+    border: 2px solid var(--border-color);
+    background: var(--bg-white);
+    color: var(--text-dark);
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);
+}
+
+.filter-btn.active {
+    background: var(--secondary-color);
+    color: white;
+    border-color: var(--secondary-color);
+}
+
+/* Language Chart */
+.language-chart {
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    background: var(--bg-white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.language-chart h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.chart-bar {
+    margin-bottom: 1.2rem;
+}
+
+.chart-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+}
+
+.chart-progress {
+    height: 25px;
+    background: var(--bg-light);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.chart-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--secondary-color), #5dade2);
+    border-radius: 15px;
+    transition: width 1s ease;
+}
+
+/* Projects Grid */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -319,6 +406,7 @@ body {
     display: flex;
     flex-direction: column;
     border-left: 4px solid var(--secondary-color);
+    position: relative;
 }
 
 .project-card:hover {
@@ -326,11 +414,33 @@ body {
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
+.project-card.pinned {
+    border-left-color: #f39c12;
+    background: linear-gradient(135deg, #fff9e6 0%, #ffffff 100%);
+}
+
+.pinned-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: #f39c12;
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.pinned-badge i {
+    margin-right: 0.3rem;
+}
+
 .project-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 1rem;
+    margin-top: 0.5rem;
 }
 
 .project-header h3 {
@@ -404,29 +514,67 @@ body {
 }
 
 /* ===== Skills ===== */
+.skills-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.skill-category {
+    margin-bottom: 2.5rem;
+}
+
+.skill-category-title {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
 .skills-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
-    max-width: 800px;
-    margin: 0 auto;
+    gap: 0.8rem;
 }
 
 .skill-tag {
     background: var(--bg-white);
-    padding: 0.8rem 1.5rem;
+    padding: 0.7rem 1.3rem;
     border-radius: 25px;
     color: var(--text-dark);
     font-weight: 500;
     box-shadow: var(--shadow);
     transition: all 0.3s ease;
+    border: 2px solid transparent;
 }
 
 .skill-tag:hover {
     background: var(--secondary-color);
     color: white;
     transform: translateY(-2px);
+    border-color: var(--secondary-color);
+}
+
+.skill-advanced {
+    border-color: #27ae60;
+}
+
+.skill-intermediate {
+    border-color: #f39c12;
+}
+
+.skill-beginner {
+    border-color: #95a5a6;
+}
+
+.loading-small {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-light);
+}
+
+.loading-small i {
+    font-size: 1.5rem;
 }
 
 /* ===== Contact Form ===== */

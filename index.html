@@ -40,12 +40,10 @@
     <section id="about" class="section">
         <div class="container">
             <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <p>
-                    B.S. in Data Science and Actuary at ITAM. I focus on probability, statistics, 
-                    and computational modeling. I enjoy solving problems with data, math, and code. 
-                    Interested in finance, stock markets, and risk modeling.
-                </p>
+            <div id="about-content" class="about-content">
+                <div class="loading-small">
+                    <i class="fas fa-spinner fa-spin"></i>
+                </div>
             </div>
         </div>
     </section>
@@ -54,32 +52,9 @@
     <section id="experience" class="section section-alt">
         <div class="container">
             <h2 class="section-title">Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">January 2025 – May 2025</div>
-                    <div class="timeline-content">
-                        <h3>ITAM</h3>
-                        <h4>Probability Lab Instructor</h4>
-                        <p>Led problem-solving sessions for undergraduates. Explained key concepts in probability theory and combinatorics. Supported exam prep and reinforced theoretical foundations.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-date">June 2025 – July 2025</div>
-                    <div class="timeline-content">
-                        <h3>ITAM</h3>
-                        <h4>Research Assistant - Labor Law and Economics</h4>
-                        <p>Analyzed collective bargaining agreements to evaluate Mexico's 2019 labor reform impact. Supported quantitative evaluation focusing on data accuracy and interpretation.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-date">August 2021 – July 2023</div>
-                    <div class="timeline-content">
-                        <h3>DonKerry Robotics Team</h3>
-                        <h4>Mechatronics & Strategy Lead</h4>
-                        <p>Engineered robots for MakeX global competitions. Contributed to two national titles and three international participations. 1st place in Abu Dhabi.</p>
-                    </div>
+            <div id="experience-timeline" class="timeline">
+                <div class="loading-small">
+                    <i class="fas fa-spinner fa-spin"></i>
                 </div>
             </div>
         </div>
@@ -89,34 +64,34 @@
     <section id="education" class="section">
         <div class="container">
             <h2 class="section-title">Education</h2>
-            <div class="education-grid">
-                <div class="education-card">
-                    <h3>Instituto Tecnológico Autónomo de México (ITAM)</h3>
-                    <span class="education-date">2023 - 2027</span>
-                    <h4>Bachelor of Science in Data Science and Actuary</h4>
-                    <p>Relevant Coursework: Machine Learning, Algorithms, Data Structures, Databases, Stochastic Processes, Financial Mathematics, Probability & Statistics.</p>
-                </div>
-
-                <div class="education-card">
-                    <h3>Instituto Politécnico Nacional (IPN)</h3>
-                    <span class="education-date">2020 - 2023</span>
-                    <h4>Mechatronics Technician</h4>
-                    <p>Automated Control, Robotic Systems, Mechanical Design, Electronic Circuits, OOP, Physics.</p>
+            <div id="education-grid" class="education-grid">
+                <div class="loading-small">
+                    <i class="fas fa-spinner fa-spin"></i>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section - DINÁMICO CON GITHUB API -->
+    <!-- Projects Section -->
     <section id="projects" class="section section-alt">
         <div class="container">
             <h2 class="section-title">Projects</h2>
+            
+            <!-- Language Filter -->
+            <div id="language-filter" class="language-filter">
+                <button class="filter-btn active" data-language="all">All</button>
+            </div>
+
+            <!-- Language Chart -->
+            <div id="language-chart" class="language-chart">
+                <h3>Languages Used</h3>
+                <div id="chart-container"></div>
+            </div>
+
             <div id="projects-loading" class="loading">
                 <i class="fas fa-spinner fa-spin"></i> Loading projects from GitHub...
             </div>
-            <div id="projects-grid" class="projects-grid">
-                <!-- Los proyectos se cargarán dinámicamente aquí -->
-            </div>
+            <div id="projects-grid" class="projects-grid"></div>
         </div>
     </section>
 
@@ -124,17 +99,10 @@
     <section id="skills" class="section">
         <div class="container">
             <h2 class="section-title">Skills</h2>
-            <div class="skills-grid">
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">R</span>
-                <span class="skill-tag">SQL</span>
-                <span class="skill-tag">Java</span>
-                <span class="skill-tag">C++</span>
-                <span class="skill-tag">Machine Learning</span>
-                <span class="skill-tag">Data Analysis</span>
-                <span class="skill-tag">PostgreSQL</span>
-                <span class="skill-tag">Git</span>
-                <span class="skill-tag">Probability & Statistics</span>
+            <div id="skills-grid" class="skills-container">
+                <div class="loading-small">
+                    <i class="fas fa-spinner fa-spin"></i>
+                </div>
             </div>
         </div>
     </section>

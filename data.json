@@ -1,0 +1,101 @@
+{
+  "about": {
+    "description": "B.S. in Data Science and Actuary at ITAM. I focus on probability, statistics, and computational modeling. I enjoy solving problems with data, math, and code. Interested in finance, stock markets, and risk modeling."
+  },
+  "experience": [
+    {
+      "id": 1,
+      "company": "ITAM",
+      "position": "Probability Lab Instructor",
+      "date": "January 2025 – May 2025",
+      "description": "Led problem-solving sessions for undergraduates. Explained key concepts in probability theory and combinatorics. Supported exam prep and reinforced theoretical foundations."
+    },
+    {
+      "id": 2,
+      "company": "ITAM",
+      "position": "Research Assistant - Labor Law and Economics",
+      "date": "June 2025 – July 2025",
+      "description": "Analyzed collective bargaining agreements to evaluate Mexico's 2019 labor reform impact. Supported quantitative evaluation focusing on data accuracy and interpretation."
+    },
+    {
+      "id": 3,
+      "company": "DonKerry Robotics Team",
+      "position": "Mechatronics & Strategy Lead",
+      "date": "August 2021 – July 2023",
+      "description": "Engineered robots for MakeX global competitions. Contributed to two national titles and three international participations. 1st place in Abu Dhabi."
+    }
+  ],
+  "education": [
+    {
+      "id": 1,
+      "institution": "Instituto Tecnológico Autónomo de México (ITAM)",
+      "degree": "Bachelor of Science in Data Science and Actuary",
+      "date": "2023 - 2027",
+      "description": "Relevant Coursework: Machine Learning, Algorithms, Data Structures, Databases, Stochastic Processes, Financial Mathematics, Probability & Statistics.",
+      "current": true
+    },
+    {
+      "id": 2,
+      "institution": "Instituto Politécnico Nacional (IPN)",
+      "degree": "Mechatronics Technician",
+      "date": "2020 - 2023",
+      "description": "Automated Control, Robotic Systems, Mechanical Design, Electronic Circuits, OOP, Physics.",
+      "current": false
+    }
+  ],
+  "skills": [
+    {
+      "name": "Python",
+      "category": "Programming Languages",
+      "level": "advanced"
+    },
+    {
+      "name": "R",
+      "category": "Programming Languages",
+      "level": "advanced"
+    },
+    {
+      "name": "SQL",
+      "category": "Programming Languages",
+      "level": "advanced"
+    },
+    {
+      "name": "Java",
+      "category": "Programming Languages",
+      "level": "intermediate"
+    },
+    {
+      "name": "C++",
+      "category": "Programming Languages",
+      "level": "intermediate"
+    },
+    {
+      "name": "Machine Learning",
+      "category": "Data Science",
+      "level": "advanced"
+    },
+    {
+      "name": "Data Analysis",
+      "category": "Data Science",
+      "level": "advanced"
+    },
+    {
+      "name": "PostgreSQL",
+      "category": "Databases",
+      "level": "advanced"
+    },
+    {
+      "name": "Git",
+      "category": "Tools",
+      "level": "advanced"
+    },
+    {
+      "name": "Probability & Statistics",
+      "category": "Mathematics",
+      "level": "advanced"
+    }
+  ],
+  "pinnedProjects": [
+    "Empresas"
+  ]
+}
