@@ -107,18 +107,15 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Projects Section - DINÁMICO CON GITHUB API -->
     <section id="projects" class="section section-alt">
         <div class="container">
             <h2 class="section-title">Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-info">
-                        <h3>Top Companies Labor Market Database</h3>
-                        <p>Normalized a company dataset to 4NF using PostgreSQL. Cleaned and structured 10,000+ entries for rating, salary, and benefits analysis. Applied SQL to analyze market trends and employee satisfaction.</p>
-                        <a href="https://github.com/lafarch/Empresas" target="_blank" class="project-link">View Project →</a>
-                    </div>
-                </div>
+            <div id="projects-loading" class="loading">
+                <i class="fas fa-spinner fa-spin"></i> Loading projects from GitHub...
+            </div>
+            <div id="projects-grid" class="projects-grid">
+                <!-- Los proyectos se cargarán dinámicamente aquí -->
             </div>
         </div>
     </section>
@@ -158,7 +155,7 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <p>&copy; 2025 Jorge Lafarga</p>
+                <p>&copy; <span id="current-year">2025</span> Jorge Lafarga</p>
                 <div class="social-links">
                     <a href="https://github.com/lafarch" target="_blank"><i class="fab fa-github"></i></a>
                     <a href="https://www.linkedin.com/in/jorge-lafarga/" target="_blank"><i class="fab fa-linkedin"></i></a>
