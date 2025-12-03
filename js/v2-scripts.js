@@ -3,22 +3,29 @@ const GITHUB_USERNAME = 'lafarch';
 const PROJECTS_TO_EXCLUDE = ['lafarch', 'lafarch.github.io'];
 const MAX_PROJECTS = 6;
 
-// Language icons mapping
 const LANGUAGE_ICONS = {
     'Python': '🐍',
     'JavaScript': '⚡',
     'Java': '☕',
     'C++': '⚙️',
     'R': '📊',
-    'HTML': '🌐',
-    'CSS': '🎨',
     'TypeScript': '📘',
-    'Go': '🔵',
-    'Rust': '🦀',
-    'Ruby': '💎',
-    'PHP': '🐘',
     'Default': '💻'
 };
+
+// ===== THEME MANAGEMENT =====
+function initTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+}
+
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+}
 
 // ===== LOAD GITHUB PROJECTS =====
 async function loadGitHubProjects() {
@@ -34,7 +41,6 @@ async function loadGitHubProjects() {
         
         const repos = await response.json();
         
-        // Filter and sort
         const projects = repos
             .filter(repo => !repo.fork && !PROJECTS_TO_EXCLUDE.includes(repo.name))
             .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at))
@@ -43,7 +49,7 @@ async function loadGitHubProjects() {
         loadingEl.style.display = 'none';
         
         if (projects.length === 0) {
-            projectsGrid.innerHTML = '<p style="text-align:center;color:#737373;">No projects found</p>';
+            projectsGrid.innerHTML = '<p style="text-align:center;color:var(--text-tertiary);">No projects found</p>';
             return;
         }
         
@@ -52,61 +58,48 @@ async function loadGitHubProjects() {
             projectsGrid.appendChild(card);
         });
         
-        // Add scroll reveal animation
         observeProjects();
         
     } catch (error) {
         console.error('Error loading projects:', error);
-        loadingEl.innerHTML = '<p style="color:#737373;">Unable to load projects. Please visit <a href="https://github.com/lafarch" target="_blank" style="color:#5a9b94;">GitHub</a> directly.</p>';
+        loadingEl.innerHTML = '<p style="color:var(--text-tertiary);">Unable to load projects. Visit <a href="https://github.com/lafarch" target="_blank" style="color:var(--accent);">GitHub</a> directly.</p>';
     }
 }
 
 // ===== CREATE PROJECT CARD =====
 function createProjectCard(repo) {
     const card = document.createElement('div');
-    card.className = 'project-card-minimal';
+    card.className = 'work-card';
     
     const icon = LANGUAGE_ICONS[repo.language] || LANGUAGE_ICONS['Default'];
     const year = new Date(repo.created_at).getFullYear();
     
     card.innerHTML = `
-        <div class="project-image-placeholder">
-            <div class="project-icon">${icon}</div>
-            ${repo.language ? `<span class="project-language-badge">${repo.language}</span>` : ''}
+        <div class="work-image">
+            <div class="work-icon">${icon}</div>
+            ${repo.language ? `<span class="work-badge">${repo.language}</span>` : ''}
         </div>
-        <div class="project-content">
-            <div class="project-header">
-                <h3 class="project-title">${formatRepoName(repo.name)}</h3>
-                <span class="project-year">${year}</span>
+        <div class="work-content">
+            <div class="work-header">
+                <h3 class="work-title">${formatRepoName(repo.name)}</h3>
+                <span class="work-year">${year}</span>
             </div>
-            <p class="project-description">
+            <p class="work-description">
                 ${repo.description || 'A data science project exploring computational methods and statistical analysis.'}
             </p>
-            <div class="project-meta">
-                <span class="project-meta-item">⭐ ${repo.stargazers_count}</span>
-                <span class="project-meta-item">🔱 ${repo.forks_count}</span>
-                <span class="project-meta-item">📅 ${getTimeAgo(repo.updated_at)}</span>
+            <div class="work-meta">
+                <span>⭐ ${repo.stargazers_count}</span>
+                <span>🔱 ${repo.forks_count}</span>
+                <span>Updated ${getTimeAgo(repo.updated_at)}</span>
             </div>
-            <div class="project-links">
-                <a href="${repo.html_url}" target="_blank" class="project-link-minimal">
-                    View Code →
-                </a>
-                ${repo.homepage ? `<a href="${repo.homepage}" target="_blank" class="project-link-minimal">Live Demo →</a>` : ''}
-            </div>
+            <a href="${repo.html_url}" target="_blank" class="work-link">View Project →</a>
         </div>
     `;
-    
-    // Add click to open GitHub
-    card.addEventListener('click', (e) => {
-        if (!e.target.closest('a')) {
-            window.open(repo.html_url, '_blank');
-        }
-    });
     
     return card;
 }
 
-// ===== UTILITY FUNCTIONS =====
+// ===== UTILITIES =====
 function formatRepoName(name) {
     return name
         .split('-')
@@ -129,11 +122,11 @@ function getTimeAgo(dateString) {
     for (const [unit, secondsInUnit] of Object.entries(intervals)) {
         const interval = Math.floor(seconds / secondsInUnit);
         if (interval >= 1) {
-            return `${interval}${unit.charAt(0)}`;
+            return `${interval}${unit.charAt(0)} ago`;
         }
     }
     
-    return 'recent';
+    return 'recently';
 }
 
 // ===== SCROLL ANIMATIONS =====
@@ -150,7 +143,7 @@ function observeProjects() {
         rootMargin: '0px 0px -50px 0px'
     });
     
-    document.querySelectorAll('.project-card-minimal').forEach((card, index) => {
+    document.querySelectorAll('.work-card').forEach((card, index) => {
         card.style.opacity = '0';
         card.style.transform = 'translateY(30px)';
         card.style.transition = `all 0.6s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.1}s`;
@@ -158,7 +151,7 @@ function observeProjects() {
     });
 }
 
-// ===== SMOOTH SCROLL FOR NAVIGATION =====
+// ===== SMOOTH SCROLL =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -169,7 +162,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 block: 'start'
             });
             
-            // Update active nav link
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.classList.remove('active');
             });
@@ -187,7 +179,6 @@ function updateActiveSection() {
     
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
         if (window.scrollY >= sectionTop - 200) {
             currentSection = section.getAttribute('id');
         }
@@ -203,11 +194,18 @@ function updateActiveSection() {
 
 window.addEventListener('scroll', updateActiveSection);
 
-// ===== YEAR UPDATE =====
-document.getElementById('current-year').textContent = new Date().getFullYear();
-
 // ===== INITIALIZATION =====
 document.addEventListener('DOMContentLoaded', () => {
+    initTheme();
     loadGitHubProjects();
     updateActiveSection();
+    
+    // Theme toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', toggleTheme);
+    }
+    
+    // Year
+    document.getElementById('current-year').textContent = new Date().getFullYear();
 });

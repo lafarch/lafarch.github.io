@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,15 +7,16 @@
     <link rel="stylesheet" href="css/v2-styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
-            <a href="#work" class="nav-link active">Work</a>
+            <a href="#work" class="nav-link active">Work <span class="nav-slash">/</span></a>
             <a href="#about" class="nav-link">About</a>
-            <a href="#contact" class="nav-link">Contact</a>
+            <a href="#notes" class="nav-link">Notes</a>
+            <a href="#contact" class="nav-link">Contact <span class="nav-slash">/</span></a>
         </div>
     </nav>
 
@@ -30,73 +31,107 @@
                 A Data Scientist.
             </h1>
             
-            <p class="hero-subtitle">
-                Solving problems with data, math, and code.
+            <p class="hero-description">
+                I'm passionate about solving problems with data, math, and code.<br>
+                Building solutions that combine rigor with real-world impact.
             </p>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container-small">
-            <h2 class="section-label">About</h2>
-            <p class="about-text">
-                I'm a Data Science and Actuary student at ITAM, passionate about probability, 
-                statistics, and computational modeling. I focus on building solutions that 
-                combine mathematical rigor with practical applications in finance and risk analysis.
-            </p>
-            <div class="about-stats">
-                <div class="stat-item">
-                    <span class="stat-number">Python</span>
-                    <span class="stat-label">Primary Language</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">R & SQL</span>
-                    <span class="stat-label">Data Analysis</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">ML & Stats</span>
-                    <span class="stat-label">Specialization</span>
-                </div>
-            </div>
         </div>
     </section>
 
     <!-- Work Section -->
-    <section id="work" class="work">
+    <section id="work" class="work-section">
         <div class="container">
-            <h2 class="section-title">Selected Work</h2>
+            <h2 class="section-heading">Selected Work</h2>
             
-            <div id="projects-loading" class="loading-minimal">
+            <div id="projects-loading" class="loading-state">
                 <div class="loading-spinner"></div>
                 Loading projects...
             </div>
 
-            <div id="projects-grid" class="projects-grid-minimal">
-                <!-- Projects will be loaded here -->
+            <div id="projects-grid" class="work-grid">
+                <!-- Projects loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container-small">
+            <h2 class="section-label">ABOUT</h2>
+            
+            <div class="about-content">
+                <p class="about-text">
+                    I'm a Data Science and Actuary student at ITAM, passionate about probability,
+                    statistics, and computational modeling. I focus on building solutions that
+                    combine mathematical rigor with practical applications in finance and risk analysis.
+                </p>
+                
+                <div class="about-skills">
+                    <div class="skill-group">
+                        <h3>Python</h3>
+                        <p>PRIMARY LANGUAGE</p>
+                    </div>
+                    <div class="skill-group">
+                        <h3>R & SQL</h3>
+                        <p>DATA ANALYSIS</p>
+                    </div>
+                    <div class="skill-group">
+                        <h3>ML & Stats</h3>
+                        <p>SPECIALIZATION</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- In Progress Section -->
+    <section id="notes" class="progress-section">
+        <div class="container">
+            <h2 class="section-heading">In Progress.</h2>
+            <p class="progress-description">
+                Working on various data science projects and research, from exploratory analysis
+                to production-ready models and applications.
+            </p>
+            
+            <div class="progress-grid">
+                <div class="progress-card">
+                    <div class="progress-label">RESEARCH</div>
+                    <h3>Quantitative Finance</h3>
+                    <p>Exploring algorithmic trading strategies and risk modeling techniques.</p>
+                </div>
+                
+                <div class="progress-card dark">
+                    <div class="progress-label">PROJECT</div>
+                    <h3>ML Pipeline</h3>
+                    <p>Building scalable machine learning infrastructure for data processing.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section id="contact" class="contact-section">
         <div class="container-small">
-            <h2 class="section-label">Get in Touch</h2>
+            <h2 class="section-label">GET IN TOUCH</h2>
+            
             <p class="contact-intro">
                 Interested in working together or just want to chat about data science?
             </p>
+            
             <div class="contact-links">
-                <a href="mailto:jlafarga@itam.mx" class="contact-link">
-                    <span class="link-label">Email</span>
-                    <span class="link-value">jlafarga@itam.mx</span>
+                <a href="mailto:jlafarga@itam.mx" class="contact-item">
+                    <span class="contact-label">EMAIL</span>
+                    <span class="contact-value">jlafarga@itam.mx</span>
                 </a>
-                <a href="https://github.com/lafarch" target="_blank" class="contact-link">
-                    <span class="link-label">GitHub</span>
-                    <span class="link-value">@lafarch</span>
+                
+                <a href="https://github.com/lafarch" target="_blank" class="contact-item">
+                    <span class="contact-label">GITHUB</span>
+                    <span class="contact-value">@lafarch</span>
                 </a>
-                <a href="https://www.linkedin.com/in/jorge-lafarga/" target="_blank" class="contact-link">
-                    <span class="link-label">LinkedIn</span>
-                    <span class="link-value">jorge-lafarga</span>
+                
+                <a href="https://www.linkedin.com/in/jorge-lafarga/" target="_blank" class="contact-item">
+                    <span class="contact-label">LINKEDIN</span>
+                    <span class="contact-value">jorge-lafarga</span>
                 </a>
             </div>
         </div>
@@ -105,10 +140,47 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p class="footer-text">
-                © <span id="current-year">2025</span> Jorge Lafarga. 
-                Built with curiosity and code.
-            </p>
+            <div class="footer-content">
+                <div class="footer-left">
+                    <p>© <span id="current-year">2025</span> Jorge Lafarga</p>
+                    <p class="footer-tagline">Built with curiosity and code.</p>
+                </div>
+                
+                <div class="footer-center">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                        <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"/>
+                            <line x1="12" y1="1" x2="12" y2="3"/>
+                            <line x1="12" y1="21" x2="12" y2="23"/>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                            <line x1="1" y1="12" x2="3" y2="12"/>
+                            <line x1="21" y1="12" x2="23" y2="12"/>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                        </svg>
+                        <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                        </svg>
+                    </button>
+                    <div class="footer-timeline"></div>
+                </div>
+                
+                <div class="footer-right">
+                    <div class="footer-column">
+                        <h4>Elsewhere</h4>
+                        <a href="https://github.com/lafarch" target="_blank">GitHub</a>
+                        <a href="https://www.linkedin.com/in/jorge-lafarga/" target="_blank">LinkedIn</a>
+                        <a href="#" target="_blank">Posts</a>
+                        <a href="#" target="_blank">CV</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Contact</h4>
+                        <a href="mailto:jlafarga@itam.mx">Message</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
 
