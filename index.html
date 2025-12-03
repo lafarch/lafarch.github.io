@@ -3,135 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jorge Lafarga | Data Science Student</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Jorge Lafarga — Data Scientist</title>
+    <link rel="stylesheet" href="css/v2-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
-    <nav id="navbar">
-        <div class="nav-wrapper">
-            <a href="#home" class="nav-logo">JL</a>
-            <ul class="nav-menu">
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#work" class="nav-link active">Work</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#contact" class="nav-link">Contact</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Jorge Lafarga</h1>
-            <h2>Data Science & Actuary Student @ ITAM</h2>
-            <p>Solving problems with data, math, and code</p>
-            <a href="https://github.com/lafarch" target="_blank" class="btn-primary">View GitHub</a>
-        </div>
-        <div class="scroll-down">
-            <i class="fas fa-chevron-down"></i>
+    <section class="hero">
+        <div class="container">
+            <div class="sparkle sparkle-1">✦</div>
+            <div class="sparkle sparkle-2">✦</div>
+            
+            <h1 class="hero-title">
+                Hi. I'm Jorge.<br>
+                A Data Scientist.
+            </h1>
+            
+            <p class="hero-subtitle">
+                Solving problems with data, math, and code.
+            </p>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div id="about-content" class="about-content">
-                <div class="loading-small">
-                    <i class="fas fa-spinner fa-spin"></i>
+    <section id="about" class="about">
+        <div class="container-small">
+            <h2 class="section-label">About</h2>
+            <p class="about-text">
+                I'm a Data Science and Actuary student at ITAM, passionate about probability, 
+                statistics, and computational modeling. I focus on building solutions that 
+                combine mathematical rigor with practical applications in finance and risk analysis.
+            </p>
+            <div class="about-stats">
+                <div class="stat-item">
+                    <span class="stat-number">Python</span>
+                    <span class="stat-label">Primary Language</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">R & SQL</span>
+                    <span class="stat-label">Data Analysis</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">ML & Stats</span>
+                    <span class="stat-label">Specialization</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="section section-alt">
+    <!-- Work Section -->
+    <section id="work" class="work">
         <div class="container">
-            <h2 class="section-title">Experience</h2>
-            <div id="experience-timeline" class="timeline">
-                <div class="loading-small">
-                    <i class="fas fa-spinner fa-spin"></i>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="section">
-        <div class="container">
-            <h2 class="section-title">Education</h2>
-            <div id="education-grid" class="education-grid">
-                <div class="loading-small">
-                    <i class="fas fa-spinner fa-spin"></i>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section section-alt">
-        <div class="container">
-            <h2 class="section-title">Projects</h2>
+            <h2 class="section-title">Selected Work</h2>
             
-            <!-- Language Filter -->
-            <div id="language-filter" class="language-filter">
-                <button class="filter-btn active" data-language="all">All</button>
+            <div id="projects-loading" class="loading-minimal">
+                <div class="loading-spinner"></div>
+                Loading projects...
             </div>
 
-            <!-- Language Chart -->
-            <div id="language-chart" class="language-chart">
-                <h3>Languages Used</h3>
-                <div id="chart-container"></div>
-            </div>
-
-            <div id="projects-loading" class="loading">
-                <i class="fas fa-spinner fa-spin"></i> Loading projects from GitHub...
-            </div>
-            <div id="projects-grid" class="projects-grid"></div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="section">
-        <div class="container">
-            <h2 class="section-title">Skills</h2>
-            <div id="skills-grid" class="skills-container">
-                <div class="loading-small">
-                    <i class="fas fa-spinner fa-spin"></i>
-                </div>
+            <div id="projects-grid" class="projects-grid-minimal">
+                <!-- Projects will be loaded here -->
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section section-alt">
-        <div class="container">
-            <h2 class="section-title">Get in Touch</h2>
-            <form id="contact-form" action="https://formspree.io/f/xvowzjyk" method="POST">
-                <input type="email" name="_replyto" placeholder="Your email" required>
-                <textarea name="message" placeholder="Your message" required></textarea>
-                <button type="submit" class="btn-primary">Send Message</button>
-            </form>
+    <section id="contact" class="contact">
+        <div class="container-small">
+            <h2 class="section-label">Get in Touch</h2>
+            <p class="contact-intro">
+                Interested in working together or just want to chat about data science?
+            </p>
+            <div class="contact-links">
+                <a href="mailto:jlafarga@itam.mx" class="contact-link">
+                    <span class="link-label">Email</span>
+                    <span class="link-value">jlafarga@itam.mx</span>
+                </a>
+                <a href="https://github.com/lafarch" target="_blank" class="contact-link">
+                    <span class="link-label">GitHub</span>
+                    <span class="link-value">@lafarch</span>
+                </a>
+                <a href="https://www.linkedin.com/in/jorge-lafarga/" target="_blank" class="contact-link">
+                    <span class="link-label">LinkedIn</span>
+                    <span class="link-value">jorge-lafarga</span>
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <p>&copy; <span id="current-year">2025</span> Jorge Lafarga</p>
-                <div class="social-links">
-                    <a href="https://github.com/lafarch" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/jorge-lafarga/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                </div>
-            </div>
+            <p class="footer-text">
+                © <span id="current-year">2025</span> Jorge Lafarga. 
+                Built with curiosity and code.
+            </p>
         </div>
     </footer>
 
-    <script src="js/scripts.js"></script>
+    <script src="js/v2-scripts.js"></script>
 </body>
 </html>

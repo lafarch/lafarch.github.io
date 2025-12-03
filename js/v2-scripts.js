@@ -1,0 +1,213 @@
+// ===== CONFIGURATION =====
+const GITHUB_USERNAME = 'lafarch';
+const PROJECTS_TO_EXCLUDE = ['lafarch', 'lafarch.github.io'];
+const MAX_PROJECTS = 6;
+
+// Language icons mapping
+const LANGUAGE_ICONS = {
+    'Python': '🐍',
+    'JavaScript': '⚡',
+    'Java': '☕',
+    'C++': '⚙️',
+    'R': '📊',
+    'HTML': '🌐',
+    'CSS': '🎨',
+    'TypeScript': '📘',
+    'Go': '🔵',
+    'Rust': '🦀',
+    'Ruby': '💎',
+    'PHP': '🐘',
+    'Default': '💻'
+};
+
+// ===== LOAD GITHUB PROJECTS =====
+async function loadGitHubProjects() {
+    const loadingEl = document.getElementById('projects-loading');
+    const projectsGrid = document.getElementById('projects-grid');
+    
+    try {
+        const response = await fetch(
+            `https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=30`
+        );
+        
+        if (!response.ok) throw new Error('Failed to load projects');
+        
+        const repos = await response.json();
+        
+        // Filter and sort
+        const projects = repos
+            .filter(repo => !repo.fork && !PROJECTS_TO_EXCLUDE.includes(repo.name))
+            .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at))
+            .slice(0, MAX_PROJECTS);
+        
+        loadingEl.style.display = 'none';
+        
+        if (projects.length === 0) {
+            projectsGrid.innerHTML = '<p style="text-align:center;color:#737373;">No projects found</p>';
+            return;
+        }
+        
+        projects.forEach(repo => {
+            const card = createProjectCard(repo);
+            projectsGrid.appendChild(card);
+        });
+        
+        // Add scroll reveal animation
+        observeProjects();
+        
+    } catch (error) {
+        console.error('Error loading projects:', error);
+        loadingEl.innerHTML = '<p style="color:#737373;">Unable to load projects. Please visit <a href="https://github.com/lafarch" target="_blank" style="color:#5a9b94;">GitHub</a> directly.</p>';
+    }
+}
+
+// ===== CREATE PROJECT CARD =====
+function createProjectCard(repo) {
+    const card = document.createElement('div');
+    card.className = 'project-card-minimal';
+    
+    const icon = LANGUAGE_ICONS[repo.language] || LANGUAGE_ICONS['Default'];
+    const year = new Date(repo.created_at).getFullYear();
+    
+    card.innerHTML = `
+        <div class="project-image-placeholder">
+            <div class="project-icon">${icon}</div>
+            ${repo.language ? `<span class="project-language-badge">${repo.language}</span>` : ''}
+        </div>
+        <div class="project-content">
+            <div class="project-header">
+                <h3 class="project-title">${formatRepoName(repo.name)}</h3>
+                <span class="project-year">${year}</span>
+            </div>
+            <p class="project-description">
+                ${repo.description || 'A data science project exploring computational methods and statistical analysis.'}
+            </p>
+            <div class="project-meta">
+                <span class="project-meta-item">⭐ ${repo.stargazers_count}</span>
+                <span class="project-meta-item">🔱 ${repo.forks_count}</span>
+                <span class="project-meta-item">📅 ${getTimeAgo(repo.updated_at)}</span>
+            </div>
+            <div class="project-links">
+                <a href="${repo.html_url}" target="_blank" class="project-link-minimal">
+                    View Code →
+                </a>
+                ${repo.homepage ? `<a href="${repo.homepage}" target="_blank" class="project-link-minimal">Live Demo →</a>` : ''}
+            </div>
+        </div>
+    `;
+    
+    // Add click to open GitHub
+    card.addEventListener('click', (e) => {
+        if (!e.target.closest('a')) {
+            window.open(repo.html_url, '_blank');
+        }
+    });
+    
+    return card;
+}
+
+// ===== UTILITY FUNCTIONS =====
+function formatRepoName(name) {
+    return name
+        .split('-')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+}
+
+function getTimeAgo(dateString) {
+    const date = new Date(dateString);
+    const now = new Date();
+    const seconds = Math.floor((now - date) / 1000);
+    
+    const intervals = {
+        year: 31536000,
+        month: 2592000,
+        week: 604800,
+        day: 86400
+    };
+    
+    for (const [unit, secondsInUnit] of Object.entries(intervals)) {
+        const interval = Math.floor(seconds / secondsInUnit);
+        if (interval >= 1) {
+            return `${interval}${unit.charAt(0)}`;
+        }
+    }
+    
+    return 'recent';
+}
+
+// ===== SCROLL ANIMATIONS =====
+function observeProjects() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    document.querySelectorAll('.project-card-minimal').forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = `all 0.6s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.1}s`;
+        observer.observe(card);
+    });
+}
+
+// ===== SMOOTH SCROLL FOR NAVIGATION =====
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+            
+            // Update active nav link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            this.classList.add('active');
+        }
+    });
+});
+
+// ===== ACTIVE SECTION DETECTION =====
+function updateActiveSection() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    let currentSection = '';
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (window.scrollY >= sectionTop - 200) {
+            currentSection = section.getAttribute('id');
+        }
+    });
+    
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${currentSection}`) {
+            link.classList.add('active');
+        }
+    });
+}
+
+window.addEventListener('scroll', updateActiveSection);
+
+// ===== YEAR UPDATE =====
+document.getElementById('current-year').textContent = new Date().getFullYear();
+
+// ===== INITIALIZATION =====
+document.addEventListener('DOMContentLoaded', () => {
+    loadGitHubProjects();
+    updateActiveSection();
+});
