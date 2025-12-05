@@ -14,6 +14,8 @@ const CONFIG = {
 
 // ===== UTILITIES =====
 
+// ===== DATA FETCHING  =====
+
 /**
  * Obtiene los repositorios, usando caché para evitar límites de API.
  */
@@ -40,7 +42,7 @@ async function fetchRepositories() {
         
         // Filtrar y limpiar datos
         const cleanRepos = repos
-            .filter(repo => !repo.fork && !CONFIG.exclude.includes(repo.name))
+            .filter(repo => !CONFIG.exclude.includes(repo.name))
             .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
 
         // Guardar en caché
@@ -123,7 +125,6 @@ async function initHomeMarquee() {
  * Lógica para la página de Proyectos (Grid completo)
  */
 async function initProjectsGrid() {
-    // CORRECCIÓN: Usar el ID correcto que está en tu HTML (projects-masonry)
     const grid = document.getElementById('projects-masonry'); 
     const loadingEl = document.getElementById('projects-loading');
     
@@ -138,7 +139,6 @@ async function initProjectsGrid() {
         return;
     }
 
-    // Renderizar todos los proyectos
     grid.innerHTML = projects.map(generateCardHTML).join('');
 }
 
