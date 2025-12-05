@@ -295,45 +295,96 @@ h1, h2, h3, .nav-logo {
 }
 
 /* ===== PROJECTS PAGE ===== */
-.work-page {
-    padding-top: 8rem;
+/* ===== PROJECTS PAGE & HERO ===== */
+/* Apply padding to body to prevent content from hiding behind fixed nav */
+.projects-page {
+    padding-top: 6rem; /* Adjust based on your nav height */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-.container-work {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-.work-header {
+.projects-hero {
+    padding: 4rem 1.5rem 2rem;
     text-align: center;
-    margin-bottom: 4rem;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-.work-main-title {
+.projects-title {
     font-size: clamp(3rem, 6vw, 5rem);
     font-weight: 700;
     color: var(--text-primary);
     margin-bottom: 1rem;
+    line-height: 1.1;
 }
 
-.work-subtitle {
-    font-size: 1.2rem;
+.projects-subtitle {
+    font-size: 1.25rem;
     color: var(--text-secondary);
+    margin-bottom: 2rem;
     font-weight: 400;
+}
+
+.github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background-color: var(--accent-color);
+    color: var(--text-on-accent);
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.github-link:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* ===== PROJECTS GRID ===== */
+.projects-main {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+    flex: 1; /* Pushes footer down */
 }
 
 .projects-grid-dispersed {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* 320px min for better mobile support */
     gap: 2rem;
     padding-bottom: 4rem;
 }
 
+/* Loading State */
+.loading-state {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-secondary);
+}
+
+.loading-spinner {
+    border: 3px solid rgba(0,0,0,0.1);
+    border-radius: 50%;
+    border-top: 3px solid var(--accent-color, #007bff);
+    width: 30px;
+    height: 30px;
+    margin: 0 auto 1rem;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+/* Card Animations */
 .projects-grid-dispersed .work-card {
     animation: fadeInScale 0.6s ease backwards;
 }
 
+/* Staggered delays for a cool effect */
 .projects-grid-dispersed .work-card:nth-child(1) { animation-delay: 0.1s; }
 .projects-grid-dispersed .work-card:nth-child(2) { animation-delay: 0.2s; }
 .projects-grid-dispersed .work-card:nth-child(3) { animation-delay: 0.3s; }
@@ -343,28 +394,8 @@ h1, h2, h3, .nav-logo {
 .projects-grid-dispersed .work-card:nth-child(n+7) { animation-delay: 0.7s; }
 
 @keyframes fadeInScale {
-    from {
-        opacity: 0;
-        transform: scale(0.8) translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-    }
-}
-
-/* Train Transition */
-.transition-track {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: 9999;
-    pointer-events: none;
-    display: none;
-}
-
-.transition-track.active {
-    display: block;
+    from { opacity: 0; transform: scale(0.9) translateY(20px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
 }
 
 /* ===== ABOUT PAGE ===== */
