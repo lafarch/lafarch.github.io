@@ -2,71 +2,85 @@
   "about": {
     "description": "B.S. in Data Science and Actuary at ITAM. I focus on probability, statistics, and computational modeling. I enjoy solving problems with data, math, and code. Interested in finance, stock markets, and risk modeling."
   },
+  "currently": [
+    {
+      "activity": "Studying",
+      "detail": "Data Science & Actuary @ ITAM"
+    },
+    {
+      "activity": "Learning",
+      "detail": "Quantitative Finance & Algo Trading"
+    },
+    {
+      "activity": "Building",
+      "detail": "ML Models & Data Pipelines"
+    }
+  ],
   "experience": [
     {
       "id": 1,
       "company": "ITAM",
       "position": "Probability Lab Instructor",
       "date": "January 2025 – May 2025",
-      "description": "Led problem-solving sessions for undergraduates. Explained key concepts in probability theory and combinatorics. Supported exam prep and reinforced theoretical foundations."
+      "description": "Led problem-solving sessions for undergraduates. Explained key concepts in probability theory and combinatorics."
     },
     {
       "id": 2,
       "company": "ITAM",
-      "position": "Research Assistant - Labor Law and Economics",
+      "position": "Research Assistant - Labor Law",
       "date": "June 2025 – July 2025",
-      "description": "Analyzed collective bargaining agreements to evaluate Mexico's 2019 labor reform impact. Supported quantitative evaluation focusing on data accuracy and interpretation."
+      "description": "Analyzed collective bargaining agreements to evaluate Mexico's 2019 labor reform impact."
     },
     {
       "id": 3,
       "company": "DonKerry Robotics Team",
-      "position": "Mechatronics & Strategy Lead",
+      "position": "Mechatronics Lead",
       "date": "August 2021 – July 2023",
-      "description": "Engineered robots for MakeX global competitions. Contributed to two national titles and three international participations. 1st place in Abu Dhabi."
+      "description": "Engineered robots for MakeX global competitions. 1st place in Abu Dhabi."
     }
   ],
   "education": [
     {
       "id": 1,
-      "institution": "Instituto Tecnológico Autónomo de México (ITAM)",
-      "degree": "Bachelor of Science in Data Science and Actuary",
+      "institution": "ITAM",
+      "degree": "B.S. Data Science and Actuary",
       "date": "2023 - 2027",
-      "description": "Relevant Coursework: Machine Learning, Algorithms, Data Structures, Databases, Stochastic Processes, Financial Mathematics, Probability & Statistics.",
+      "description": "ML, Algorithms, Databases, Stochastic Processes, Financial Math",
       "current": true
     },
     {
       "id": 2,
-      "institution": "Instituto Politécnico Nacional (IPN)",
+      "institution": "IPN",
       "degree": "Mechatronics Technician",
       "date": "2020 - 2023",
-      "description": "Automated Control, Robotic Systems, Mechanical Design, Electronic Circuits, OOP, Physics.",
+      "description": "Robotics, Control Systems, Mechanical Design",
       "current": false
     }
   ],
   "skills": [
     {
       "name": "Python",
-      "category": "Programming Languages",
+      "category": "Languages",
       "level": "advanced"
     },
     {
       "name": "R",
-      "category": "Programming Languages",
+      "category": "Languages",
       "level": "advanced"
     },
     {
       "name": "SQL",
-      "category": "Programming Languages",
+      "category": "Languages",
       "level": "advanced"
     },
     {
       "name": "Java",
-      "category": "Programming Languages",
+      "category": "Languages",
       "level": "intermediate"
     },
     {
       "name": "C++",
-      "category": "Programming Languages",
+      "category": "Languages",
       "level": "intermediate"
     },
     {
@@ -75,13 +89,13 @@
       "level": "advanced"
     },
     {
-      "name": "Data Analysis",
+      "name": "Statistics",
       "category": "Data Science",
       "level": "advanced"
     },
     {
       "name": "PostgreSQL",
-      "category": "Databases",
+      "category": "Tools",
       "level": "advanced"
     },
     {
@@ -90,9 +104,9 @@
       "level": "advanced"
     },
     {
-      "name": "Probability & Statistics",
-      "category": "Mathematics",
-      "level": "advanced"
+      "name": "Excel",
+      "category": "Tools",
+      "level": "intermediate"
     }
   ],
   "pinnedProjects": [

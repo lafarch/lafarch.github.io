@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jorge Lafarga | Data Scientist</title>
+    <title>Projects | Jorge Lafarga</title>
     <link rel="stylesheet" href="css/v2-styles.css">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="projects-page">
     
     <div class="gradient-bg"></div>
 
@@ -18,10 +18,10 @@
         <div class="nav-container">
             <a href="index.html" class="nav-logo">JL</a>
             <div class="nav-links">
-                <a href="index.html" class="nav-link active" title="Home">
+                <a href="index.html" class="nav-link" title="Home">
                     <span class="home-icon">🏠︎</span>
                 </a>
-                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="projects.html" class="nav-link active">Projects</a>
                 <a href="about.html" class="nav-link">About</a>
                 <a href="#contact" class="nav-link">Contact</a>
                 <button id="theme-toggle" class="theme-btn-nav" aria-label="Toggle theme">
@@ -31,59 +31,32 @@
         </div>
     </nav>
 
-    <section class="hero hero-compact">
-        <div class="container-hero">
-            <div class="sparkle sparkle-1 interactive-sparkle hidden">✦</div>
-            <h1 class="hero-title hidden">
-                Hi. I'm Jorge.<br>
-                A Data Scientist.
-            </h1>
-            <p class="hero-description hidden" style="transition-delay: 150ms;">
-                Solving problems with data, math, and code.
-            </p>
-            <div class="sparkle sparkle-2 interactive-sparkle hidden" style="transition-delay: 300ms;">✦</div>
-        </div>
-    </section>
-
-    <section id="work" class="marquee-section-compact hidden" style="transition-delay: 200ms;">
-        <div id="projects-loading" class="loading-state">
-            <div class="loading-spinner"></div>
-            <p>Loading projects...</p>
-        </div>
-
-        <div class="marquee-wrapper">
-            <div class="marquee-track" id="projects-track">
-                                </div>
-        </div>
-    </section>
-
-    <section id="about" class="about-section">
-        <div class="container-small">
-            <div class="about-grid">
-                <div class="about-text-column hidden">                    
-                    <h2 href="about.html" class="section-label" >ABOUT</h2>
-                    <p class="about-text">
-                        B.S. in Data Science and Actuary at ITAM. 
-                        I focus on probability, statistics, and computational modeling. 
-                        I enjoy solving problems with data, math, and code. Interested in finance, stock markets, and risk modeling
-                    </p>
-                </div>
-                
-                <div class="skills-column hidden" style="transition-delay: 200ms;">
-                    <div class="skill-item">
-                        <h3>Python</h3>
-                        <p>PRIMARY LANGUAGE</p>
-                    </div>
-                    <div class="skill-item">
-                        <h3>R & SQL</h3>
-                        <p>DATA ANALYSIS</p>
-                    </div>
-                    <div class="skill-item">
-                        <h3>ML & Stats</h3>
-                        <p>SPECIALIZATION</p>
-                    </div>
-                </div>
+    <section class="projects-hero">
+        <div class="container">
+            <div class="projects-intro fade-in">
+                <h1 class="projects-title">My Projects</h1>
+                <p class="projects-subtitle">Building with data, math, and code</p>
+                <p class="hidden">
+                    A showcase of my work in Data Science, Computational Modeling, and Quantitative Finance. 
+                    All projects are pulled directly from my GitHub repository.
+                </p>
+                <a href="https://github.com/lafarch" target="_blank" class="github-link hidden">
+                     <span>Visit my GitHub Profile</span> 
+                    <span>→</span>
+                </a>
             </div>
+        </div>
+    </section>
+
+    <section class="projects-main">
+        <div class="container-projects">
+            <div id="projects-loading" class="loading-state">
+                <div class="loading-spinner"></div>
+                <p>Loading projects from GitHub...</p>
+            </div>
+
+            <div id="projects-masonry" class="masonry-grid projects-grid-dispersed">
+                </div>
         </div>
     </section>
 
