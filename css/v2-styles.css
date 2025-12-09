@@ -409,6 +409,7 @@ h1, h2, h3, .nav-logo {
     padding: 0 2rem;
 }
 
+
 .about-hero {
     padding: 4rem 0 6rem;
     text-align: center;
@@ -457,11 +458,18 @@ h1, h2, h3, .nav-logo {
 
 /* Education Items */
 .edu-item {
-    background: var(--card-bg);
-    padding: 2rem;
-    border-radius: 16px;
+    background: var(--card-bg); /* MANTENER ESTO */
+    padding: 2rem; /* MANTENER ESTO */
+    border-radius: 16px; /* MANTENER ESTO */
     margin-bottom: 1.5rem;
-    border-left: 4px solid var(--accent);
+    border: 1px solid var(--card-border); 
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s ease;
+
+}
+
+.edu-item:hover {
+    transform: translateY(-3px); /* Pequeño efecto hover */
 }
 
 .edu-header {
@@ -543,6 +551,14 @@ h1, h2, h3, .nav-logo {
     background: var(--card-bg);
     padding: 1.5rem;
     border-radius: 16px;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--card-border); 
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s ease;
+}
+
+.skill-category-box:hover {
+    transform: translateY(-3px); /* Pequeño efecto hover */
 }
 
 .skill-category-box h4 {
@@ -578,6 +594,12 @@ h1, h2, h3, .nav-logo {
     padding: 1.2rem;
     border-radius: 12px;
     text-align: center;
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s ease;   
+}
+
+.lang-item:hover {
+    transform: translateY(-3px); /* Pequeño efecto hover */ 
 }
 
 .lang-item strong {
@@ -604,6 +626,13 @@ h1, h2, h3, .nav-logo {
     padding: 2rem;
     border-radius: 16px;
     text-align: center;
+    border: 1px solid var(--card-border); 
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s ease;
+}
+
+.interest-card:hover {
+    transform: translateY(-3px); /* Pequeño efecto hover */
 }
 
 .interest-icon {
