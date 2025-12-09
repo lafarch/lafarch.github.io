@@ -13,8 +13,13 @@ const CONFIG = {
 };
 
 // ===== UTILITIES =====
-
 // ===== DATA FETCHING  =====
+const FORKS_TO_INCLUDE = [
+  'proyecto_BDNR', 
+  'fuentes-datos', 
+  'Empresas', 
+  'proyecto_farmacias_ANTAD'
+];
 
 /**
  * Obtiene los repositorios, usando caché para evitar límites de API.
@@ -42,9 +47,8 @@ async function fetchRepositories() {
         
         // Filtrar y limpiar datos
         const cleanRepos = repos
-            .filter(repo => !CONFIG.exclude.includes(repo.name))
+            .filter(repo => !CONFIG.exclude.includes(repo.name) && (!repo.fork || FORKS_TO_INCLUDE.includes(repo.name)))
             .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
-
         // Guardar en caché
         sessionStorage.setItem(CONFIG.cacheKey, JSON.stringify({
             timestamp: Date.now(),
