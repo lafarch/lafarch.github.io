@@ -462,6 +462,7 @@ h1, h2, h3, .nav-logo {
     padding: 2rem; /* MANTENER ESTO */
     border-radius: 16px; /* MANTENER ESTO */
     margin-bottom: 1.5rem;
+    border-left: 4px solid var(--accent);
     border: 1px solid var(--card-border); 
     box-shadow: var(--card-shadow);
     transition: all 0.3s ease;
